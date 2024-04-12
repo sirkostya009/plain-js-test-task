@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Task</title>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body class="flex flex-col justify-center place-items-center h-screen w-screen bg-[#6084b4] m-0 p-0">
+  <div class="bg-white p-5 rounded-sm w-auto half:w-[80%]">
+    <h1>Test</h1>
+
+    <form class="grid grid-cols-4 max-w-2xl gap-x-10 mb-5 half:grid-cols-1">
+      <label class="col-span-3 half:col-span-1">
+        <div class="text-sm text-gray-600">Name/Value Pair</div>
+        <input class="w-full border border-gray-200 half:h-1/2 half:w-[98.5%]" type="text" id="input" placeholder="Key=Value">
+      </label>
+
+      <input class="mt-5 w-1/2 half:w-full half:h-8" type="button" onclick="addToList()" value="Add">
+    </form>      
+
+    <div class="grid grid-cols-4 max-w-2xl gap-x-10 half:grid-cols-1">
+      <label class="col-span-3 half:col-span-1">
+        <div class="text-sm text-gray-600">Name/Value Pair</div>
+        <ul class="h-full p-0 border border-gray-500 list-none" id="list"></ul>
+      </label>
+
+      <div class="grid grid-rows-4 gap-y-5 w-auto mt-5 half:gap-y-3">
+        <button class="half:h-8" onclick="sort('data-key')">Sort by Name</button>
+        <button class="half:h-8" onclick="sort('data-value')">Sort by Value</button>
+        <button class="half:h-8" onclick="list.innerHTML = ''">Delete</button>
+        <button class="half:h-8" onclick="generateXML()">Show as XML</button>
+      </div>
+    </div>
+
+    <div id="xmlLabel" class="mt-5 text-sm hidden w-full text-center"></div>
+  </div>
+</body>
+</html>
