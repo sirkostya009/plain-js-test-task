@@ -16,10 +16,17 @@ function addToList() {
   list.appendChild(item);
 }
 
+const orderings = {
+  'data-key': true,
+  'data-value': true,
+};
+
 function sort(attribute) {
-  const sorted = [...list.children].sort((a, b) => a.getAttribute(attribute).localeCompare(b.getAttribute(attribute)));
-  list.childNodes.forEach(child => child.remove());
-  sorted.forEach(child => list.appendChild(child));
+  const comparator = (orderings[attribute] = !orderings[attribute]) // toggles the order
+    ? (a, b) => a.getAttribute(attribute) > b.getAttribute(attribute)
+    : (a, b) => a.getAttribute(attribute) < b.getAttribute(attribute);
+
+  [...list.children].sort(comparator).forEach(child => list.appendChild(child));
 }
 
 let timeoutId;
