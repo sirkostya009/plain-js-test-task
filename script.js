@@ -22,26 +22,30 @@ function sort(attribute) {
   sorted.forEach(child => list.appendChild(child));
 }
 
-function clear() {
-  list.children = [];
-}
-
 let timeoutId;
 
-function generateXML() {
+function showXML() {
   const items = [];
   for (const child of list.children)  {
     items.push(`<item key="${child.getAttribute('data-key')}" value="${child.getAttribute('data-value')}"/>`);
   }
 
   const xml =  `<list>${items.join('')}</list>`;
-
   console.log(xml);
-  navigator.clipboard.writeText(xml);
 
-  clearTimeout(timeoutId);
-  xmlLabel.innerText = "XML copied to clipboard and printed to console";
-  xmlLabel.classList.remove("hidden");
+  const isPhone = window.matchMedia("(pointer:coarse)").matches;
+  if (isPhone) { // downloads the xml file on mobile
+    const a = document.createElement('a');
+    a.download = 'list.xml';
+    a.href = `data:text/xml,${encodeURIComponent(xml)}`;
+    a.click();
+  } else { // copies to clipboard on desktop and shows the label
+    clearTimeout(timeoutId);
+    navigator.clipboard.writeText(xml);
 
-  timeoutId = setTimeout(() => xmlLabel.classList.add("hidden"), 3000);
+    xmlLabel.innerText = "XML copied to clipboard and printed to console";
+    xmlLabel.classList.remove("hidden");
+
+    timeoutId = setTimeout(() => xmlLabel.classList.add("hidden"), 3000);
+  }
 }
