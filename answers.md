@@ -33,20 +33,20 @@ the value in column A for any C column that contains 2.
 29. what
 30. C. Why flex the whole `natural join` thing if you can use a more explicit `inner join` cuh...
 31. what
-32. 1 `'%a%'` selects all strings that contain a character 'a' in them.
+32. 1 `'%a%'` selects all strings that contain character 'a' in them.
 33. A. An underscore represents a match for any character.
 34. D. Syntax is incorrect.
 35. A. Both queries effectively select second largest value.
 36. A. `distinct`.
 37. B. They may or may not give the same result. The provided example is arbitrary enough to permit such an outcome.
 38. C. Bro is flexing `natural join`.
-39. we be doing data science tests
-40. B. Yeah no shit it will be slower on a table with a million of records.
+39. we be doing computers science tests - I have no idea.
+40. B. On a million records it will undoubtedly be slower.
 41. B. I don't really understand the yap `explain` gave out but it seems that cost range values for the indexed table
 are lower so I guess the indexed one after all.
-42. C. Nah I mean I highly doubt they made an algorithm that looks for patterns in an indexed column, considering the
-costs and shit it might as well do full scan.
-43. C. Full scan, same shit as with 42 although I slightly doubt it.
-44. A. `lag()` selects the previous column or null if not present and `lead()` select the next one, respectively.
+42. C. I don't believe db engines are capable of doing pattern search on an index tree, besides that wouldn't make sense
+as try thinking of the edge cases, the overhead of iterating an index tree might be more expensive than just a full scan.
+43. C. Full scan.
+44. A. `lag()` returns the previous column or null if not present and `lead()` returns the next one, respectively.
 45. D. All points seem to make sense.
-46. A. Serial creates the sequence for auto-incrementing itself on any insertion that does not specify the value for it.
+46. A. `serial` creates the sequence for auto-incrementing itself on any insertion that does not specify the value for it.
