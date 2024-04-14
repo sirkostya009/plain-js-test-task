@@ -714,6 +714,11 @@ button,
 }
 
 @media (max-width: 552px) {
+  button,
+[type='button'] {
+    height: 2rem;
+  }
+
   .half\:col-span-1 {
     grid-column: span 1 / span 1;
   }
@@ -730,12 +735,12 @@ button,
     height: 50%;
   }
 
-  .half\:h-8 {
-    height: 2rem;
-  }
-
   .half\:h-full {
     height: 100%;
+  }
+
+  .half\:h-8 {
+    height: 2rem;
   }
 
   .half\:max-h-56 {
