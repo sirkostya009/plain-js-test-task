@@ -7,34 +7,34 @@
   <script src="script.js" defer></script>
   <link rel="stylesheet" href="stylesheet.css">
 </head>
-<body class="flex flex-col justify-center place-items-center h-screen w-screen bg-[#6084b4] m-0 p-0">
-  <div class="bg-white p-5 rounded-sm w-auto half:w-[80%]">
-    <h1>Test</h1>
+<body class="flex flex-col justify-center place-items-center min-h-screen w-screen h-auto bg-[#6084b4] m-0 p-0">
+  <div class="bg-white p-10 pr-12 half:p-5 rounded-sm overflow-y-auto half:h-full">
+    <h1 class="text-2xl font-semibold mb-5 mt-5">Test</h1>
 
     <form class="grid grid-cols-4 max-w-2xl gap-x-10 mb-5 half:grid-cols-1">
       <label class="col-span-3 half:col-span-1">
-        <div class="text-sm text-gray-600">Name/Value Pair</div>
-        <input class="w-full border border-gray-200 half:h-1/2 half:w-[98.5%]" type="text" id="input" placeholder="Key=Value">
+        <span class="text-sm text-gray-600">Name/Value Pair</span>
+        <input class="w-full border border-gray-200 half:h-1/2" type="text" id="input" placeholder="Key=Value">
       </label>
 
-      <input class="mt-5 w-1/2 half:w-full half:h-8" type="button" onclick="addToList()" value="Add">
-    </form>      
+      <button class="mt-6 w-1/2 half:w-full half:mt-5 half:h-8" type="button" onclick="addToList()">Add</button>
+    </form>
 
     <div class="grid grid-cols-4 max-w-2xl gap-x-10 half:grid-cols-1">
-      <label class="col-span-3 half:col-span-1">
-        <div class="text-sm text-gray-600">Name/Value Pair</div>
-        <ul class="h-full p-0 border border-gray-500 list-none" id="list"></ul>
-      </label>
+      <div class="col-span-3 half:col-span-1">
+        <span class="text-sm text-gray-600">Name/Value Pair List</span>
+        <div class="w-full p-0 border border-gray-200 h-96 overflow-y-auto half:max-h-56" id="list"></div>
+      </div>
 
-      <div class="grid grid-rows-4 gap-y-5 w-auto mt-5 half:gap-y-3">
-        <button class="half:h-8" onclick="sort('data-key')">Sort by Name</button>
-        <button class="half:h-8" onclick="sort('data-value')">Sort by Value</button>
-        <button class="half:h-8" onclick="list.innerHTML = ''">Delete</button>
+      <div class="flex flex-col w-auto mt-5">
+        <button class="half:h-8 mb-3" onclick="sort('data-key')">Sort by Name</button>
+        <button class="half:h-8 mb-5 half:mb-3" onclick="sort('data-value')">Sort by Value</button>
+        <button class="half:h-8 mb-5 half:mb-3" onclick="list.innerHTML = ''">Delete</button>
         <button class="half:h-8" onclick="showXML()">Show as XML</button>
       </div>
     </div>
 
-    <div id="xmlLabel" class="mt-5 text-sm hidden w-full text-center"></div>
+    <div id="xmlLabel" class="mt-10 half:mt-5 text-sm hidden w-full text-center"></div>
   </div>
 </body>
 </html>

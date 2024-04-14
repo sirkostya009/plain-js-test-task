@@ -8,7 +8,7 @@ function addToList() {
 
   const [, key, value] = match;
 
-  const item = document.createElement("li");
+  const item = document.createElement("div");
   item.setAttribute('data-key', key);
   item.setAttribute('data-value', value);
   item.innerText = `${key}=${value}`;
@@ -33,7 +33,7 @@ let timeoutId;
 
 function showXML() {
   const items = [];
-  for (const child of list.children)  {
+  for (const child of list.children) {
     items.push(`<item key="${child.getAttribute('data-key')}" value="${child.getAttribute('data-value')}"/>`);
   }
 
